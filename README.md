@@ -43,7 +43,7 @@ cp .env.example .env
 - `GITHUB_BRANCH`: Branch a usar (default: `main`)
 - `API_SECRET_KEY`: Una clave secreta aleatoria de al menos 32 caracteres
 - `MCP_PORT`: Puerto del servidor (default: `3000`)
-- `VERCEL_DEPLOY_HOOK`: (Opcional) Deploy Hook de Vercel
+- `DEPLOY_HOOK`: (Opcional) Deploy Hook de Vercel
 
 ### 4. Compila el proyecto
 
@@ -84,7 +84,7 @@ pnpm test
 
 1. En tu proyecto de Vercel, ve a Settings → Git
 2. En la sección "Deploy Hooks", crea un nuevo hook
-3. Copia la URL y agrégala a `VERCEL_DEPLOY_HOOK` en tu `.env`
+3. Copia la URL y agrégala a `DEPLOY_HOOK` en tu `.env`
 
 ## 📡 API Endpoints
 

@@ -43,7 +43,7 @@ function validateEnv(): MCPConfig {
       port: parseInt(process.env.MCP_PORT || "3000"),
     },
     vercel: {
-      deployHook: process.env.VERCEL_DEPLOY_HOOK,
+      deployHook: process.env.DEPLOY_HOOK,
     },
   };
 }
