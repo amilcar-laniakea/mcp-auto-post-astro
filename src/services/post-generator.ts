@@ -27,6 +27,18 @@ export function generateFileName(title: string): string {
 }
 
 /**
+ * Escapa valores para front-matter YAML
+ */
+function escapeYamlValue(value: string): string {
+  // El guion va al principio para evitar el error de rango
+  if (/[-:#{}\[\],&*#?<>!=%@`]/g.test(value)) {
+    // Escapar comillas simples duplicándolas
+    return `'${value.replace(/'/g, "''")}'`;
+  }
+  return value;
+}
+
+/**
  * Genera el contenido del archivo markdown con front-matter
  */
 export function generatePostContent(input: CreatePostInput): string {
@@ -42,7 +54,7 @@ export function generatePostContent(input: CreatePostInput): string {
   } = input;
 
   const frontMatter = `---
-title: ${title}
+title: ${escapeYamlValue(title)}
 published: ${getDate()}
 description: '${description.replace(/'/g, "''")}'
 image: '${image}'
