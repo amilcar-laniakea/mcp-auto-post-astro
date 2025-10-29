@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import helmet from "helmet";
 import dotenv from "dotenv";
 import { MCPConfig } from "./types/index.js";
 import { validateApiKey, rateLimit, requestLogger } from "./middleware/auth.js";
@@ -58,10 +57,6 @@ const cacheService = new CacheService(1800000);
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 app.use(requestLogger);
-
-app.use(helmet());
-
-app.disable("x-powered-by");
 
 // Health check (sin autenticación)
 app.use("/api/health", createHealthRouter());
