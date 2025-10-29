@@ -1,7 +1,5 @@
 import { Router, Request, Response } from "express";
-import * as rateLimitModule from "express-rate-limit";
-
-const rateLimit = rateLimitModule.default;
+import { rateLimit } from "express-rate-limit";
 
 export function createHealthRouter(): Router {
   const router = Router();
