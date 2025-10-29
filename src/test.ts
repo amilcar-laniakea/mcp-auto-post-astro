@@ -12,6 +12,14 @@ async function testAPI() {
   console.log("1️⃣ Testing health endpoint...");
   try {
     const healthRes = await fetch(`${API_URL}/api/health`);
+
+    if (!healthRes.ok) {
+      const errorText = await healthRes.text();
+      throw new Error(
+        `Health check failed with status ${healthRes.status}: ${errorText}`
+      );
+    }
+
     const healthData = await healthRes.json();
     console.log("✅ Health check:", healthData);
   } catch (error) {

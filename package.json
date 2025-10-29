@@ -16,7 +16,7 @@
     "blog",
     "automation"
   ],
-  "author": "Your Name",
+  "author": "Amilcar Barahona",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
@@ -35,6 +35,6 @@
     "typescript": "^5.3.3"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": "22.x"
   }
 }

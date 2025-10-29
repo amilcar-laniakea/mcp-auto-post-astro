@@ -1,5 +1,7 @@
 import { Router, Request, Response } from "express";
-import rateLimit from "express-rate-limit";
+import * as rateLimitModule from "express-rate-limit";
+
+const rateLimit = rateLimitModule.default;
 
 export function createHealthRouter(): Router {
   const router = Router();
@@ -7,9 +9,10 @@ export function createHealthRouter(): Router {
   const healthRateLimit = rateLimit({
     windowMs: 60 * 1000,
     max: 1,
+    statusCode: 500,
     message: {
       status: "error",
-      message: "Too many health check requests",
+      message: "Too many health check requests - FORCED FAILURE",
     },
   });
 
